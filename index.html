@@ -16,93 +16,75 @@
     </header>
 
     <main class="main" id="main">
-        <section class="section" id="introSection">
-            <div class="container">
-            <p class="intro-text">Please select the items you want on your plate</p>
-            </div>
-        </section>
-        <form action="#" class="form" id="foodForm">
-            <section class="section" id="orderSection">
-                <div class="container">
-                    <div class="mb-3">
-                        <label for="person" class="form-label text-capitalize">enter your name</label>
-                        <input 
-                            type="text" 
-                            class="form-control" 
-                            id="person" 
-                            name="person" 
-                            value=""
-                            required
-                        />
-                    </div>
-                </div>
-            </section>
-            <section class="section" id="meatSection">
-                <div class="container">
-                    <h2 class="section-heading text-capitalize">meat</h2>
-                    <p class="section-text">Please choose up to three meats</p>
-                    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4" id="meatRow">
-                        <!-- <div class="col">
-                            <div class="figure-div">
-                                <figure class="figure item-figure">
-                                    <img src="https://via.placeholder.com/200x200" alt="placeholder img" class="img-fluid image figure-img food-image rounded" />
-                                    <figcaption class="figure-caption food-caption">Lorem.</figcaption>
-                                </figure>
-                                <h3 class="food-heading">food</h3>
-                                <div class="form-check">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9">
+                    <section class="section" id="introSection">
+                        <div class="container">
+                        <p class="intro-text">Please select the items you want on your plate</p>
+                        </div>
+                    </section>
+                    <form action="#" class="form" id="foodForm">
+                        <section class="section" id="orderSection">
+                            <div class="container">
+                                <div class="mb-3">
+                                    <label for="person" class="form-label text-capitalize">enter your name</label>
                                     <input 
-                                        type="checkbox" 
-                                        name="meat" 
-                                        id="friedTurkey"
-                                        value="fried turkey"
-                                        class="form-check-input"
+                                        type="text" 
+                                        class="form-control" 
+                                        id="person" 
+                                        name="person" 
+                                        value=""
+                                        required
                                     />
-                                    <label 
-                                        for="friedTurkey" 
-                                        class="text-capitalize form-check-label">
-                                        fried turkey
-                                    </label>
                                 </div>
                             </div>
-                        </div> -->
-                    </div>
+                        </section>
+                        <section class="section" id="meatSection">
+                            <div class="container">
+                                <h2 class="section-heading text-capitalize">meat</h2>
+                                <p class="section-text">Please choose up to three meats</p>
+                                <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4" id="meatRow"></div>
+                            </div>
+                        </section>
+                        <section class="section" id="sidesSection">
+                            <div class="container">
+                                <h2 class="section-heading text-capitalize">sides</h2>
+                                <p class="section-text">Please choose up to five sides</p>
+                                <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4" id="sidesRow"></div>
+                            </div>
+                        </section>
+                        <section class="section" id="dessertsSection">
+                            <div class="container">
+                                <h2 class="section-heading text-capitalize">desserts</h2>
+                                <p class="section-text">Please choose up to two desserts</p>
+                                <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4" id="dessertsRow"></div>
+                            </div>
+                        </section>
+                        <section class="section" id="drinksSection">
+                            <div class="container">
+                                <h2 class="section-heading text-capitalize">drinks</h2>
+                                <p class="section-text">Please choose a drink</p>
+                                <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4" id="drinksRow"></div>
+                            </div>
+                        </section>
+                        <div class="container mb-3">
+                            <button class="btn submit-btn text-capitalize" id="submitBtn">submit</button>
+                        </div>
+                    </form>
                 </div>
-            </section>
-            <section class="section" id="sidesSection">
-                <div class="container">
-                    <h2 class="section-heading text-capitalize">sides</h2>
-                    <p class="section-text">Please choose up to five sides</p>
-                    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4" id="sidesRow"></div>
+                <div class="col-sm-3">
+                    <section class="section" id="receiptSection">
+                        <div class="container">
+                            <div class="receipt">
+                                <h2 class="section-heading text-capitalize"><span id="personPlate"></span>plate</h2>
+                                <ul class="food-list list-group list-group-flush" id="foodList"></ul>
+                            </div>
+                        </div>
+                    </section>
                 </div>
-            </section>
-            <section class="section" id="dessertsSection">
-                <div class="container">
-                    <h2 class="section-heading text-capitalize">desserts</h2>
-                    <p class="section-text">Please choose up to two desserts</p>
-                    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4" id="dessertsRow"></div>
-                </div>
-            </section>
-            <section class="section" id="drinksSection">
-                <div class="container">
-                    <h2 class="section-heading text-capitalize">drinks</h2>
-                    <p class="section-text">Please choose a drink</p>
-                    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4" id="drinksRow"></div>
-                </div>
-            </section>
-            <div class="container mb-3">
-                <button class="btn submit-btn text-capitalize">submit</button>
             </div>
-        </form>
-        <section class="section" id="receiptSection">
-            <div class="container">
-                <div class="receipt">
-                    <h2 class="section-heading text-capitalize">your plate</h2>
-                    <ul class="food-list list-group list-group-flush" id="foodList">
-                        <li class="list-group-item">Lorem, ipsum.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+        </div>
     </main>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

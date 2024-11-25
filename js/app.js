@@ -174,15 +174,21 @@ class MenuForm {
                 isChecked: false
             }
         ]
+
+        this.plate = {
+            person: '',
+            meat: [],
+            sides: [],
+            desserts: [],
+            drinks: ''
+        }
     }
 
     init() {
-        // console.log('initialized')
         this.buildFigures(this.menu)
     }
 
     loadItems(el, child) {
-        // console.log('loaded')
         el.appendChild(child)
     }
 
@@ -194,10 +200,12 @@ class MenuForm {
             column.classList.add('col')
 
             column.innerHTML = `
-                <div class="figure-div">
+                <div class="figure-div" data-isChecked=${obj.isChecked}>
                     <figure class="figure item-figure">
                         <img src="https://via.placeholder.com/200x200" alt="placeholder img" class="img-fluid image figure-img food-image rounded" />
-                        <figcaption class="figure-caption food-caption">${obj.madeBy}</figcaption>
+                        <figcaption class="figure-caption food-caption">${
+                            obj.hasOwnProperty('madeBy') ? obj.madeBy : ''
+                        }</figcaption>
                     </figure>
                     <h3 class="food-heading">${obj.item}</h3>
                     <div class="form-check">
@@ -217,11 +225,6 @@ class MenuForm {
                 </div>
             `
 
-            // console.log(column)
-
-            // this.rows.forEach(row => {
-            //     this.loadItems(row, column)
-            // })
             switch (obj.type) {
                 case 'meat': 
                     this.loadItems(this.meatRow, column)
@@ -241,8 +244,73 @@ class MenuForm {
         })
     }
 
+    buildPlate() {
+        const person = document.getElementById('person').value
+        const checkboxes = document.querySelectorAll('input[type=checkbox]')
+        const foodItems = document.querySelectorAll('.figure-div')
+
+
+        checkboxes.forEach(checkbox => {
+            const name = checkbox.name
+            const value = checkbox.value
+            if (checkbox.checked) {
+                // console.log(checkbox.value)
+                // console.log(checkbox.value)
+                this.plate = {
+                    ...this.plate,
+                    person,
+                    [name]: [...this.plate[name],value]
+                }
+
+                this.menu.forEach(item => {
+                    if (checkbox.value == item.item) {
+                        item.isChecked = checkbox.checked
+                    }
+                })
+            }
+        })
+        // console.log(this.plate)
+
+        this.makeReceipt(this.menu)
+        const personPlate = document.getElementById('personPlate')
+        personPlate.innerText = `${this.plate.person}'s `
+
+        this.makeReceipt(this.menu)
+    }
+
+    makeReceipt(arr) {
+
+        for (let i = 0; i < arr.length; i++) {
+            if (obj.isChecked) {
+                const listItem = document.createElement('li')
+                listItem.classList.add('list-group-item')
+                listItem.innerText = arr[i].item
+    
+                this.foodList.appendChild(listItem)
+            }
+        }
+
+    }
 
 }
 
+const submitBtn = document.getElementById('submitBtn')
+
+
 const action = new MenuForm() 
 action.init()
+
+submitBtn.addEventListener('click', ()=> {
+    // console.log('click')
+    action.buildPlate()
+})
+
+// let obj = {
+//     a: 1,
+//     b: 2,
+//     c: 3
+// }
+
+// for (prop in obj) {
+//     console.log(obj[prop] * 3)
+// }
