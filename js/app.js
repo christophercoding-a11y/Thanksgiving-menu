@@ -71,7 +71,7 @@ class MenuForm {
                 item: 'mashed potatoes w/gravy',
                 imgUrl: 'mashed_potatoes.jpeg',
                 isChecked: false,
-                madeBy: 'counsin bam bam'
+                madeBy: 'cousin Bam Bam'
             },
             {
                 id: 8,
@@ -79,7 +79,7 @@ class MenuForm {
                 item: 'deep fried loaded baked potato balls',
                 imgUrl: 'baked_potato_balls.jpeg',
                 isChecked: false,
-                madeBy: 'Aunt tracey'
+                madeBy: 'Aunt Tracey'
             },
             {
                 id: 9,
@@ -95,7 +95,7 @@ class MenuForm {
                 item: 'cranberry sauce',
                 imgUrl: 'cranberry_sauce.jpeg',
                 isChecked: false,
-                madeBy: 'Aunt liz'
+                madeBy: 'Aunt Liz'
             },
             {
                 id: 11, 
@@ -103,7 +103,7 @@ class MenuForm {
                 item: 'greenbean casserole',
                 imgUrl: 'greenbean_casserole.jpeg',
                 isChecked: false,
-                madeBy: 'uncle jason'
+                madeBy: 'Uncle Jason'
             },
             {
                 id: 12,
@@ -111,7 +111,7 @@ class MenuForm {
                 item: 'cornbread',
                 imgUrl: 'cornbread.jpeg',
                 isChecked: false,
-                madeBy: "uncle beau"
+                madeBy: 'Uncle Beau'
             },
             {
                 id: 13, 
@@ -119,7 +119,7 @@ class MenuForm {
                 item: 'sweet potato pie',
                 imgUrl: 'sweet_potato_pie.jpeg',
                 isChecked: false,
-                madeBy: "Uncle Jimmie"
+                madeBy: 'Uncle jimmie'
             },
             {
                 id: 14,
@@ -143,7 +143,7 @@ class MenuForm {
                 item: 'bread pudding',
                 imgUrl: 'bread_pudding.jpeg',
                 isChecked: false,
-                madeBy: 'Aunt punkin'
+                madeBy: 'Aunt Punkin'
             },
             {
                 id: 17,
@@ -196,6 +196,7 @@ class MenuForm {
 
         arr.forEach(obj => {
             // for each object build Figure
+            
             const column = document.createElement('div')
             column.classList.add('col')
 
@@ -224,7 +225,6 @@ class MenuForm {
                     </div>
                 </div>
             `
-
             switch (obj.type) {
                 case 'meat': 
                     this.loadItems(this.meatRow, column)
@@ -245,33 +245,34 @@ class MenuForm {
     }
 
     buildPlate() {
-        const person = document.getElementById('person').value
+        const person =  document.getElementById('person').value
         const checkboxes = document.querySelectorAll('input[type=checkbox]')
         const foodItems = document.querySelectorAll('.figure-div')
 
 
         checkboxes.forEach(checkbox => {
+
             const name = checkbox.name
             const value = checkbox.value
             if (checkbox.checked) {
                 // console.log(checkbox.value)
-                // console.log(checkbox.value)
+                // console.log(name, value)
                 this.plate = {
                     ...this.plate,
                     person,
                     [name]: [...this.plate[name],value]
+                    
                 }
 
                 this.menu.forEach(item => {
                     if (checkbox.value == item.item) {
                         item.isChecked = checkbox.checked
                     }
+                    
                 })
             }
         })
         // console.log(this.plate)
-
-        this.makeReceipt(this.menu)
         const personPlate = document.getElementById('personPlate')
         personPlate.innerText = `${this.plate.person}'s `
 
@@ -281,13 +282,15 @@ class MenuForm {
     makeReceipt(arr) {
 
         for (let i = 0; i < arr.length; i++) {
-            if (obj.isChecked) {
+            if (arr[i].isChecked) {
                 const listItem = document.createElement('li')
                 listItem.classList.add('list-group-item')
                 listItem.innerText = arr[i].item
     
                 this.foodList.appendChild(listItem)
+    
             }
+
         }
 
     }
@@ -300,14 +303,16 @@ const submitBtn = document.getElementById('submitBtn')
 const action = new MenuForm() 
 action.init()
 
-submitBtn.addEventListener('click', ()=> {
+submitBtn.addEventListener('click', (e)=> {
+    e.preventDefault()
     // console.log('click')
     action.buildPlate()
 })
 
+
 // let obj = {
-//     a: 1,
-//     b: 2,
+//     a: 1, 
+//     b: 2, 
 //     c: 3
 // }
 
