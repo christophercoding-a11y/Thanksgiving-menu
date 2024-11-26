@@ -1,0 +1,96 @@
+:root {
+    --brown: #813405;
+    --red: #d45113;
+    --orange: #f9a03f;
+    --tan: #f8dda4;
+    --green: #ddf9c1;
+}
+
+* { box-sizing: border-box;}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--tan);
+}
+
+/* .figs {
+    margin-bottom: 20px;
+} */
+
+.food-caption {
+    color: var(--red);
+    font-style: italic;
+}
+
+.food-heading {
+    padding-left: 10px;
+    color: var(--brown);
+    font-size: 1rem;
+    text-transform: capitalize;
+}
+
+.figure-div {
+    background-color: var(--tan);
+    box-shadow: 3px 3px 3px #333;
+    border-radius: 5px;
+
+}
+
+.figure-form {
+    margin-left: 10px;
+}
+
+.figure-label {
+    font-size: 14px;
+}
+
+.food-form {
+    padding: 20px;
+    background-color: whitesmoke;
+    border: 5px solid var(--brown);
+    border-radius: 5px;
+}
+
+.header {
+    padding: 10px 0;
+}
+
+.heading {
+    color: var(--brown);
+    text-shadow: 2px 2px 2px var(--orange);
+}
+
+.intro-text {
+    color: var(--red);
+    font-size: calc(18px + (26 - 18) * ((100vw - 300px) / (1600 - 300)));
+    font-style: italic;
+}
+
+.li {
+    color: var(--red);
+    text-transform: capitalize;
+}
+
+.main {
+    padding: 40px 0;
+}
+
+.section-heading {
+    color: var(--brown);
+}
+
+.section-text {
+    color: var(--red);
+}
+
+
+.submit-btn {
+    background-color: var(--red);
+    color: whitesmoke
+}
+
+#dessertSection, #drinksSection, #meatSection, #sidesSection {
+    padding: 20px 0;
+    margin-bottom: 20px;
+}
