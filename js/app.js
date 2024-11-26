@@ -162,7 +162,7 @@ class MenuForm {
             {
                 id: 19,
                 type: 'drinks',
-                item: 'whiskey',
+                item: 'coke',
                 imgUrl: 'coke.jpeg',
                 isChecked: false
             },
