@@ -117,7 +117,7 @@ class MenuForm {
                 id: 13, 
                 type: 'desserts',
                 item: 'sweet potato pie',
-                imgUrl: 'Sweetpotatopie.jpeg',
+                imgUrl: 'sweetpotatopie.jpeg',
                 isChecked: false,
                 madeBy: 'Uncle Jimmie'
             },
